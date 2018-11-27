@@ -260,7 +260,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3dd865fb24ef4fe48a1370769c4ca6a2, type: 3}
-  m_Color: {r: 0.022058845, g: 0.017192923, b: 0.017192923, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.947}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -294,8 +294,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   horizontal: 0
-  verical: 0
-  Player_Speed: 2
+  vertical: 0
+  Player_Speed: 10
   Player_rb: {fileID: 1861657331}
 --- !u!60 &1861657335
 PolygonCollider2D:
