@@ -1158,7 +1158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   horizontal: 0
   vertical: 0
-  Player_Speed: 10
+  Player_Speed: 500
   Player_rb: {fileID: 1861657331}
 --- !u!61 &1861657335
 BoxCollider2D:
