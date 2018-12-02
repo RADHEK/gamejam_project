@@ -6,14 +6,15 @@ using UnityEngine.SceneManagement;
 public class Menu : MonoBehaviour {
     public GameObject GameMenu;
     public GameObject PauseButton;
-	// Use this for initialization
-	void Start ()
+    public GameObject RestartButton;
+    // Use this for initialization
+    void Start ()
     {
 		
 	}
 	
 	// Update is called once per frame
-	void Update ()
+	void FixedUpdate()
     {
         if(Input.GetKeyUp(KeyCode.Escape))
         {
@@ -30,6 +31,7 @@ public class Menu : MonoBehaviour {
 
     public void Resume()
     {
+        RestartButton.SetActive(false);
         GameMenu.SetActive(false);
         PauseButton.SetActive(true);
         Time.timeScale = 1;
@@ -38,6 +40,7 @@ public class Menu : MonoBehaviour {
     public void Pause()
     {
         GameMenu.SetActive(true);
+        RestartButton.SetActive(true);
         PauseButton.SetActive(false);
         Time.timeScale = 0;
     }

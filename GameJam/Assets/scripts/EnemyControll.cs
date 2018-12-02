@@ -17,7 +17,7 @@ public class EnemyControll : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate() {
         transform.position=Vector2.MoveTowards(transform.position, Player.position, Enemy_MoveSpeed * Time.deltaTime);
 	}
 }
