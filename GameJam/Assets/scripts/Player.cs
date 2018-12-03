@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 	}
     void OnTriggerStay2D(Collider2D collider2D)
     {
-        if (collider2D.name == "Enemy_Prefab(Clone)")
+        if (collider2D.tag == "Enemy")
         {
             GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent -= 1;
         }
