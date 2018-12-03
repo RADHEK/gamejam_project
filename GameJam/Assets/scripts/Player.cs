@@ -9,15 +9,16 @@ public class Player : MonoBehaviour
     public float Player_Speed;
     public Rigidbody2D Player_rb;
     Vector2 movement;
+    bool IsFacingRight = true;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
         Player_rb = GetComponent<Rigidbody2D>();
 	}
     void OnTriggerStay2D(Collider2D collider2D)
     {
-        if (collider2D.name == "Enemy_test")
+        if (collider2D.name == "Enemy_Prefab(Clone)")
         {
             GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent -= 1;
         }
@@ -25,9 +26,24 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate ()
     {
+        Move();
+        if (Player_rb.velocity.x > 0 && !IsFacingRight) Flip();
+        if (Player_rb.velocity.x < 0 && IsFacingRight) Flip();
+    }
+
+    private void Move()
+    {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-        Player_rb.velocity = new Vector2(horizontal * Player_Speed, vertical*Player_Speed);
+        Player_rb.velocity = new Vector2(horizontal * Player_Speed, vertical * Player_Speed);
+    }
+
+    private void Flip()
+    {
+        IsFacingRight = !IsFacingRight;
+        Vector2 Temp = transform.localScale;
+        Temp.x *= -1;
+        transform.localScale = Temp;
     }
 }
 
