@@ -99,9 +99,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c3bdb9508013c4280133663135fcc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Enemy_MoveSpeed: 100
+  EnemyMoveSpeed: 100
+  ChaseDistance: 400
+  PatrolA: {x: 28, y: 50}
+  PatrolB: {x: 420, y: 20}
   Enemy1: {fileID: 50803024334836182}
+  Target: {x: 0, y: 0}
 --- !u!212 &212666522879045716
 SpriteRenderer:
   m_ObjectHideFlags: 1

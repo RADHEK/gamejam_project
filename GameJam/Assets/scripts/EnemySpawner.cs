@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour {
     public GameObject Enemy_Prefab;
+    public Vector2 SpawnPosition; 
     // Use this for initialization
     void Start () {
 		
@@ -12,6 +13,6 @@ public class EnemySpawner : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
 		if(Input.GetMouseButtonDown(0))
-            Instantiate(Enemy_Prefab, Vector3.zero, Quaternion.identity);
+            Instantiate(Enemy_Prefab, SpawnPosition, Quaternion.identity);
     }
 }
