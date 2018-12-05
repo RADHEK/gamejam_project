@@ -11,7 +11,7 @@ AnimatorController:
   - m_Name: Decision
     m_Type: 3
     m_DefaultFloat: 0
-    m_DefaultInt: 0
+    m_DefaultInt: 4
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
   m_AnimatorLayers:
@@ -279,7 +279,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102074006480022490}
-    m_Position: {x: 384, y: -156, z: 0}
+    m_Position: {x: 408, y: -120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102408271113684806}
     m_Position: {x: 204, y: 96, z: 0}
