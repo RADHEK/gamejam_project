@@ -5,18 +5,18 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
 
-    public float horizontal,vertical;
+    public float horizontal, vertical;
     public float Player_Speed;
     public Rigidbody2D Player_rb;
-    Vector2 movement;
-    bool IsFacingRight = true;
+    //Vector2 movement;
+    //bool IsFacingRight = true;
 
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-       
+
         Player_rb = GetComponent<Rigidbody2D>();
-	}
+    }
     void OnTriggerStay2D(Collider2D collider2D)
     {
         if (collider2D.tag == "Enemy")
@@ -25,10 +25,18 @@ public class Player : MonoBehaviour
         }
     }
     // Update is called once per frame
-    void FixedUpdate ()
+    void FixedUpdate()
+    {
+        AnimationPlayerMove();
+        Move();
+        //if (Player_rb.velocity.x > 0 && !IsFacingRight) Flip();
+        //if (Player_rb.velocity.x < 0 && IsFacingRight) Flip();
+    }
+
+    void AnimationPlayerMove()
     {
         Animator anim = this.GetComponent<Animator>();
-        if (Input.GetKey(KeyCode.W)|| Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {
             anim.SetInteger("Decision", 0);
         }
@@ -44,9 +52,6 @@ public class Player : MonoBehaviour
         {
             anim.SetInteger("Decision", 1);
         }
-        Move();
-        //if (Player_rb.velocity.x > 0 && !IsFacingRight) Flip();
-        //if (Player_rb.velocity.x < 0 && IsFacingRight) Flip();
     }
 
     private void Move()

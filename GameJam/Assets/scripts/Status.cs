@@ -4,42 +4,63 @@ using UnityEngine;
 
 public class Status : MonoBehaviour
 {
-    public int HealthPointMax = 100;
-    public int MagicPointMax = 50;
+    public int HealthPointMax = 200;
+    public int MagicPointMax = 200;
     public int HealthPointCurrent;
     public int MagicPointCurrent;
+    public bool Saint = false;
     public GameObject DeadUI;
     public GameObject PauseButton;
     public GameObject Player;
     public GameObject RestartButton;
     // Use this for initialization
-    void Start ()
+    void Start()
     {
-        HealthPointCurrent = 100;
-        MagicPointCurrent = 50;
     }
-	
-	// Update is called once per frame
-	void FixedUpdate()
+
+    // Update is called once per frame
+    void Update()
     {
+        IsSaint();
+        SAINT();
         IsDead();
-	}
-    
+    }
+
     void IsDead()
     {
-        if(HealthPointCurrent==0)
+        if (HealthPointCurrent == 0)
         {
             DeadPause();
         }
     }
 
-    void IsTruthSight()
-    {
-
-    }
-
     void IsSaint()
     {
+        if ((MagicPointCurrent >= 25)||Saint)
+        {
+            if (Input.GetKeyUp(KeyCode.X))
+            {
+                Saint = !Saint;
+                if(Saint)
+                Player.transform.position += new Vector3(4000, 0,0);
+                else Player.transform.position -= new Vector3(4000, 0, 0);
+            }
+        }
+    }
+
+    void SAINT()
+    {
+        if (Saint)
+        {
+            
+            MagicPointCurrent -= 1;
+            HealthPointCurrent += 1;
+            if (MagicPointCurrent == 0)
+            {
+                Saint = false;
+                Player.transform.position -= new Vector3(4000, 0, 0);
+            }
+        }
 
     }
 
@@ -51,3 +72,4 @@ public class Status : MonoBehaviour
         Time.timeScale = 0;
     }
 }
+
