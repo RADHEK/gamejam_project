@@ -52,6 +52,8 @@ public class Menu : MonoBehaviour {
 
     public void Restart()
     {
+        GameObject.Find("Status").GetComponent<Status>().MagicPointCurrent = 5000;
+        GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent = 200;
         SceneManager.LoadScene(0);
         Resume();
     }

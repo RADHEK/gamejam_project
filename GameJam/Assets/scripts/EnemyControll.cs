@@ -5,20 +5,21 @@ using UnityEngine;
 public class EnemyControll : MonoBehaviour
 {
 
-    private  Transform Player;
+    private Transform Player;
     public float EnemyMoveSpeed;
     public float ChaseDistance;
-    public Vector2 PatrolA,PatrolB;
+    public Vector2 PatrolA, PatrolB;
     public Rigidbody2D Enemy1;
     private float Distance;
     bool IsFacingRight = true;
     public Vector2 Target;
     public int HealthPoint;
-
-
+    private bool IsDead = false;
+    private float Timer;
     // Use this for initialization
     void Start()
     {
+        Timer = 2;
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         Target = PatrolA;
     }
@@ -26,29 +27,30 @@ public class EnemyControll : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Distance = Vector2.Distance(Player.position, Enemy1.transform.position);
-        if (Distance < ChaseDistance)
+        IsEmitated();
+        if (!IsDead)
         {
-            Chase();
-            if (Player.position.x > Enemy1.transform.position.x && !IsFacingRight)
-                Flip();
-            if (Player.position.x < Enemy1.transform.position.x && IsFacingRight)
-                Flip();
+            Distance = Vector2.Distance(Player.position, Enemy1.transform.position);
+            if (Distance < ChaseDistance)
+            {
+                Chase();
+                if (Player.position.x > Enemy1.transform.position.x && !IsFacingRight)
+                    Flip();
+                if (Player.position.x < Enemy1.transform.position.x && IsFacingRight)
+                    Flip();
+            }
+            else
+            {
+                Patrol();
+                if (Target.x > Enemy1.transform.position.x && !IsFacingRight)
+                    Flip();
+                if (Target.x < Enemy1.transform.position.x && IsFacingRight)
+                    Flip();
+            }
         }
-        else
-        {
-            Patrol();
-            if (Target.x > Enemy1.transform.position.x && !IsFacingRight)
-                Flip();
-            if (Target.x < Enemy1.transform.position.x && IsFacingRight)
-                Flip();
-        }
-        if (HealthPoint < 0.001)
-            Destroy(this);
+    }
 
-        }
-
-    void OnTriggerStay2D(Collider2D collider2D)
+    void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (collider2D.tag == "Sword" && GameObject.Find("Sword").GetComponent<SwordControl>().IsAttacking)
         {
@@ -58,8 +60,8 @@ public class EnemyControll : MonoBehaviour
 
     private void Chase()
     {
-       
-            transform.position = Vector2.MoveTowards(transform.position, Player.position, EnemyMoveSpeed * Time.deltaTime);
+
+        transform.position = Vector2.MoveTowards(transform.position, Player.position, EnemyMoveSpeed * Time.deltaTime);
 
     }
 
@@ -85,7 +87,23 @@ public class EnemyControll : MonoBehaviour
         Temp.x *= -1;
         transform.localScale = Temp;
     }
-    
+
+    private void IsEmitated()
+    {
+        if (HealthPoint <= 0)
+        {
+            this.gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
+            IsDead = true;
+            Destroy(this.gameObject.GetComponent<Collider2D>());
+            Timer -= Time.deltaTime;
+            if (Timer< 0)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+
+    }
 
 }
+
 

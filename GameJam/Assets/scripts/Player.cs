@@ -24,29 +24,27 @@ public class Player : MonoBehaviour
         MaxHP = GameObject.Find("Status").GetComponent<Status>().HealthPointMax;
         Player_rb = GetComponent<Rigidbody2D>();
     }
-    void OnTriggerStay2D(Collider2D collider2D)
-    {
-        if (collider2D.tag == "Enemy")
-        {
-            GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent -= 1;
-        }
-    }
+    
     void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (collider2D.tag == "Artifacts")
         {
             Artifacts += 1;
-            collider2D.gameObject.SetActive(false);
+            Destroy(collider2D.gameObject);
         }
         else if (collider2D.tag == "HealthGet")
         {
             GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent = (CurHP + HealthGet) > MaxHP ? MaxHP : (CurHP + 50);
-            collider2D.gameObject.SetActive(false);
+            Destroy(collider2D.gameObject);
         }
         else if (collider2D.tag == "MagicGet")
         {
             GameObject.Find("Status").GetComponent<Status>().MagicPointCurrent = (CurMP + MagicGet) > MaxMP ? MaxMP : (CurMP + 50);
-            collider2D.gameObject.SetActive(false);
+            Destroy(collider2D.gameObject);
+        }
+        else if (collider2D.tag == "Enemy")
+        {
+            GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent -= 50;
         }
     }
     // Update is called once per frame
