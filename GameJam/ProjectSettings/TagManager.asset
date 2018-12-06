@@ -8,6 +8,7 @@ TagManager:
   - Artifacts
   - HealthGet
   - MagicGet
+  - Sword
   layers:
   - Default
   - TransparentFX

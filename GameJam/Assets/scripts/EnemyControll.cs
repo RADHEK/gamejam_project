@@ -13,6 +13,8 @@ public class EnemyControll : MonoBehaviour
     private float Distance;
     bool IsFacingRight = true;
     public Vector2 Target;
+    public int HealthPoint;
+
 
     // Use this for initialization
     void Start()
@@ -41,8 +43,18 @@ public class EnemyControll : MonoBehaviour
             if (Target.x < Enemy1.transform.position.x && IsFacingRight)
                 Flip();
         }
+        if (HealthPoint < 0.001)
+            Destroy(this);
 
         }
+
+    void OnTriggerStay2D(Collider2D collider2D)
+    {
+        if (collider2D.tag == "Sword" && GameObject.Find("Sword").GetComponent<SwordControl>().IsAttacking)
+        {
+            HealthPoint -= 50;
+        }
+    }
 
     private void Chase()
     {
@@ -73,7 +85,7 @@ public class EnemyControll : MonoBehaviour
         Temp.x *= -1;
         transform.localScale = Temp;
     }
-
+    
 
 }
 
