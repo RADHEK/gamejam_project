@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-
+    private int Artifacts = 0;
+    private int HealthGet = 50;
+    private int MagicGet = 50;
+    private int MaxHP;
+    private int CurHP;
+    private int MaxMP;
+    private int CurMP;
     public float horizontal, vertical;
     public float Player_Speed;
     public Rigidbody2D Player_rb;
@@ -14,7 +20,8 @@ public class Player : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        MaxMP = GameObject.Find("Status").GetComponent<Status>().MagicPointMax;
+        MaxHP = GameObject.Find("Status").GetComponent<Status>().HealthPointMax;
         Player_rb = GetComponent<Rigidbody2D>();
     }
     void OnTriggerStay2D(Collider2D collider2D)
@@ -24,11 +31,31 @@ public class Player : MonoBehaviour
             GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent -= 1;
         }
     }
+    void OnTriggerEnter2D(Collider2D collider2D)
+    {
+        if (collider2D.tag == "Artifacts")
+        {
+            Artifacts += 1;
+            collider2D.gameObject.SetActive(false);
+        }
+        else if (collider2D.tag == "HealthGet")
+        {
+            GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent = (CurHP + HealthGet) > MaxHP ? MaxHP : (CurHP + 50);
+            collider2D.gameObject.SetActive(false);
+        }
+        else if (collider2D.tag == "MagicGet")
+        {
+            GameObject.Find("Status").GetComponent<Status>().MagicPointCurrent = (CurMP + MagicGet) > MaxMP ? MaxMP : (CurMP + 50);
+            collider2D.gameObject.SetActive(false);
+        }
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
         AnimationPlayerMove();
         Move();
+        CurHP = GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent;
+        CurMP = GameObject.Find("Status").GetComponent<Status>().MagicPointCurrent;
         //if (Player_rb.velocity.x > 0 && !IsFacingRight) Flip();
         //if (Player_rb.velocity.x < 0 && IsFacingRight) Flip();
     }

@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Artifacts
+  - HealthGet
+  - MagicGet
   layers:
   - Default
   - TransparentFX
