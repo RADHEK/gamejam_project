@@ -11,7 +11,7 @@ public class EnemyControll : MonoBehaviour
     public Vector2 PatrolA, PatrolB;
     public Rigidbody2D Enemy1;
     private float Distance;
-    bool IsFacingRight = true;
+    public bool IsFacingRight = true;
     public Vector2 Target;
     public int HealthPoint;
     private bool IsDead = false;

@@ -14,9 +14,10 @@ public class Menu : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void FixedUpdate()
+	void Update()
     {
-        if(Input.GetKeyUp(KeyCode.Escape))
+        GameComplete();
+        if (Input.GetKeyUp(KeyCode.Escape))
         {
             if (Time.timeScale == 1)
             {
@@ -54,7 +55,17 @@ public class Menu : MonoBehaviour {
     {
         GameObject.Find("Status").GetComponent<Status>().MagicPointCurrent = 5000;
         GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent = 200;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
         Resume();
+    }
+    public void GameStart()
+    {
+        SceneManager.LoadScene(1);
+    }
+
+    public void GameComplete()
+    {
+        if((GameObject.Find("Player").GetComponent<Player>().Artifacts)==4)
+            SceneManager.LoadScene(2);
     }
 }

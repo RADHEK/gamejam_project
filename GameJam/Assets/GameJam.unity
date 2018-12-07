@@ -893,14 +893,14 @@ RectTransform:
   m_GameObject: {fileID: 478132348}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.7204204, y: 3.7204232, z: 3.7204232}
+  m_LocalScale: {x: 2.2981577, y: 2.2981594, z: 2.2981594}
   m_Children: []
   m_Father: {fileID: 335642336}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1, y: -3}
+  m_AnchoredPosition: {x: -1.0000064, y: -1.0538049}
   m_SizeDelta: {x: 27, y: 27}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &478132350
@@ -922,7 +922,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 605fbc457c6584740b099f17600d94f0, type: 3}
+  m_Sprite: {fileID: 21300002, guid: 239416c659fbb7942801f389a2635459, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -967,10 +967,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10000
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 9.8
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -988,18 +988,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.29017758, y: 0.068279445}
+  m_Offset: {x: 0.0054911636, y: 0.0011107624}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 10}
+    oldSize: {x: 0.32, y: 0.32}
     newSize: {x: 10, y: 10}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.909091, y: 3.5136294}
+  m_Size: {x: 0.14206058, y: 0.32130486}
   m_EdgeRadius: 0
 --- !u!212 &488169989
 SpriteRenderer:
@@ -1035,7 +1035,7 @@ SpriteRenderer:
   m_SortingLayerID: 1241886101
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0580a58671a26934997f1c3bfafc15c8, type: 3}
+  m_Sprite: {fileID: 21300012, guid: 239416c659fbb7942801f389a2635459, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1052,8 +1052,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 488169986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 24.84066, y: 24.84066, z: 24.84066}
+  m_LocalPosition: {x: -47.4, y: 23.2, z: 0}
+  m_LocalScale: {x: 514.5501, y: 514.5501, z: 514.5501}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
@@ -1069,6 +1069,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e0c5fc70b959ac4f8e6df4de9e3227a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Artifacts: 0
   horizontal: 0
   vertical: 0
   Player_Speed: 200
@@ -1347,7 +1348,7 @@ EdgeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
