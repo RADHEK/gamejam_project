@@ -65,7 +65,8 @@ public class Status : MonoBehaviour
         if (Saint)
         {
             MagicPointCurrent -= 1;
-            HealthPointCurrent += 1;
+            if(HealthPointCurrent<=200)
+                HealthPointCurrent += 1;
             if (MagicPointCurrent == 0)
             {
                 Saint = false;
