@@ -1,0 +1,232 @@
+fileFormatVersion: 2
+guid: ce896ef84e7f2fe4682e588ff519fcae
+timeCreated: 1444495878
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Waterfall@64x64_0
+    21300002: Waterfall@64x64_1
+    21300004: Waterfall@64x64_2
+    21300006: Waterfall@64x64_3
+    21300008: Waterfall@64x64_4
+    21300010: Waterfall@64x64_5
+    21300012: Waterfall@64x64_6
+    21300014: Waterfall@64x64_7
+    21300016: Waterfall@64x64_8
+    21300018: Waterfall@64x64_9
+    21300020: Waterfall@64x64_10
+    21300022: Waterfall@64x64_11
+    21300024: Waterfall@64x64_12
+    21300026: Waterfall@64x64_13
+    21300028: Waterfall@64x64_14
+    21300030: Waterfall@64x64_15
+    21300032: Waterfall@64x64_16
+    21300034: Waterfall@64x64_17
+    21300036: Waterfall@64x64_18
+    21300038: Waterfall@64x64_19
+    21300040: Waterfall@64x64_20
+    21300042: Waterfall@64x64_21
+    21300044: Waterfall@64x64_22
+    21300046: Waterfall@64x64_23
+    21300048: Waterfall@64x64_24
+    21300050: Waterfall@64x64_25
+    21300052: Waterfall@64x64_26
+    21300054: Waterfall@64x64_27
+    21300056: Waterfall@64x64_28
+    21300058: Waterfall@64x64_29
+    21300060: Waterfall@64x64_30
+    21300062: Waterfall@64x64_31
+    21300064: Waterfall@64x64_32
+    21300066: Waterfall@64x64_33
+    21300068: Waterfall@64x64_34
+    21300070: Waterfall@64x64_35
+    21300072: Waterfall@64x64_36
+    21300074: Waterfall@64x64_37
+    21300076: Waterfall@64x64_38
+    21300078: Waterfall@64x64_39
+    21300080: Waterfall@64x64_40
+    21300082: Waterfall@64x64_41
+    21300084: Waterfall@64x64_42
+    21300086: Waterfall@64x64_43
+    21300088: Waterfall@64x64_44
+    21300090: Waterfall@64x64_45
+    21300092: Waterfall@64x64_46
+    21300094: Waterfall@64x64_47
+    21300096: Waterfall@64x64_48
+    21300098: Waterfall@64x64_49
+    21300100: Waterfall@64x64_50
+    21300102: Waterfall@64x64_51
+    21300104: Waterfall@64x64_52
+    21300106: Waterfall@64x64_53
+    21300108: Waterfall@64x64_54
+    21300110: Waterfall@64x64_55
+    21300112: Waterfall@64x64_56
+    21300114: Waterfall@64x64_57
+    21300116: Waterfall@64x64_58
+    21300118: Waterfall@64x64_59
+    21300120: Waterfall@64x64_60
+    21300122: Waterfall@64x64_61
+    21300124: Waterfall@64x64_62
+    21300126: Waterfall@64x64_63
+    21300128: Waterfall@64x64_64
+    21300130: Waterfall@64x64_65
+    21300132: Waterfall@64x64_66
+    21300134: Waterfall@64x64_67
+    21300136: Waterfall@64x64_68
+    21300138: Waterfall@64x64_69
+    21300140: Waterfall@64x64_70
+    21300142: Waterfall@64x64_71
+    21300144: Waterfall@64x64_72
+    21300146: Waterfall@64x64_73
+    21300148: Waterfall@64x64_74
+    21300150: Waterfall@64x64_75
+    21300152: Waterfall@64x64_76
+    21300154: Waterfall@64x64_77
+    21300156: Waterfall@64x64_78
+    21300158: Waterfall@64x64_79
+    21300160: Waterfall@64x64_80
+    21300162: Waterfall@64x64_81
+    21300164: Waterfall@64x64_82
+    21300166: Waterfall@64x64_83
+    21300168: Waterfall@64x64_84
+    21300170: Waterfall@64x64_85
+    21300172: Waterfall@64x64_86
+    21300174: Waterfall@64x64_87
+    21300176: Waterfall@64x64_88
+    21300178: Waterfall@64x64_89
+    21300180: Waterfall@64x64_90
+    21300182: Waterfall@64x64_91
+    21300184: Waterfall@64x64_92
+    21300186: Waterfall@64x64_93
+    21300188: Waterfall@64x64_94
+    21300190: Waterfall@64x64_95
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 32
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Waterfall@64x64_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 256
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Waterfall@64x64_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 256
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Waterfall@64x64_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 320
+        width: 256
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Waterfall@64x64_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 320
+        width: 256
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Waterfall@64x64_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 256
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Waterfall@64x64_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 256
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Waterfall@64x64_6
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 256
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Waterfall@64x64_7
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 128
+        width: 256
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

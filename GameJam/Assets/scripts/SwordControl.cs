@@ -37,7 +37,7 @@ public class SwordControl : MonoBehaviour {
             }
             else
                 transform.position = new Vector2(Player.transform.position.x + 100, Player.transform.position.y);
-            if (Input.GetKeyUp(KeyCode.RightControl) && !IsAttacking)
+            if (Input.GetKeyUp(KeyCode.Z) && !IsAttacking)
             {
                 this.gameObject.transform.position = new Vector2(Player.transform.position.x + 100, Player.transform.position.y  -100);
                 IsAttacking = true;
@@ -60,7 +60,7 @@ public class SwordControl : MonoBehaviour {
             }
             else
                 transform.position = new Vector2(Player.transform.position.x + 100, Player.transform.position.y);
-            if (Input.GetKeyUp(KeyCode.RightControl) && !IsAttacking)
+            if (Input.GetKeyUp(KeyCode.Z) && !IsAttacking)
             {
                 this.gameObject.transform.position = new Vector2(Player.transform.position.x + 100, Player.transform.position.y + 100);
                 IsAttacking = true;
@@ -83,7 +83,7 @@ public class SwordControl : MonoBehaviour {
             }
             else
                 transform.position = new Vector2(Player.transform.position.x +20, Player.transform.position.y + 50);
-            if (Input.GetKeyUp(KeyCode.RightControl) && !IsAttacking)
+            if (Input.GetKeyUp(KeyCode.Z) && !IsAttacking)
             {
                 this.gameObject.transform.position = new Vector2(Player.transform.position.x - 80, Player.transform.position.y + 50);
                 IsAttacking = true;
@@ -106,7 +106,7 @@ public class SwordControl : MonoBehaviour {
             }
             else
                 transform.position = new Vector2(Player.transform.position.x + 20, Player.transform.position.y+50);
-            if (Input.GetKeyUp(KeyCode.RightControl) && !IsAttacking)
+            if (Input.GetKeyUp(KeyCode.Z) && !IsAttacking)
             {
                 this.gameObject.transform.position = new Vector2(Player.transform.position.x + 120, Player.transform.position.y + 50);
                 IsAttacking = true;

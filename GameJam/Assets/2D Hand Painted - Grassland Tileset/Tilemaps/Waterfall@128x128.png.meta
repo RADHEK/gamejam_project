@@ -1,0 +1,232 @@
+fileFormatVersion: 2
+guid: 8ab1bf3fc4bcbfa45807492cc18cf5b1
+timeCreated: 1444495918
+licenseType: Store
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Waterfall@128x128_0
+    21300002: Waterfall@128x128_1
+    21300004: Waterfall@128x128_2
+    21300006: Waterfall@128x128_3
+    21300008: Waterfall@128x128_4
+    21300010: Waterfall@128x128_5
+    21300012: Waterfall@128x128_6
+    21300014: Waterfall@128x128_7
+    21300016: Waterfall@128x128_8
+    21300018: Waterfall@128x128_9
+    21300020: Waterfall@128x128_10
+    21300022: Waterfall@128x128_11
+    21300024: Waterfall@128x128_12
+    21300026: Waterfall@128x128_13
+    21300028: Waterfall@128x128_14
+    21300030: Waterfall@128x128_15
+    21300032: Waterfall@128x128_16
+    21300034: Waterfall@128x128_17
+    21300036: Waterfall@128x128_18
+    21300038: Waterfall@128x128_19
+    21300040: Waterfall@128x128_20
+    21300042: Waterfall@128x128_21
+    21300044: Waterfall@128x128_22
+    21300046: Waterfall@128x128_23
+    21300048: Waterfall@128x128_24
+    21300050: Waterfall@128x128_25
+    21300052: Waterfall@128x128_26
+    21300054: Waterfall@128x128_27
+    21300056: Waterfall@128x128_28
+    21300058: Waterfall@128x128_29
+    21300060: Waterfall@128x128_30
+    21300062: Waterfall@128x128_31
+    21300064: Waterfall@128x128_32
+    21300066: Waterfall@128x128_33
+    21300068: Waterfall@128x128_34
+    21300070: Waterfall@128x128_35
+    21300072: Waterfall@128x128_36
+    21300074: Waterfall@128x128_37
+    21300076: Waterfall@128x128_38
+    21300078: Waterfall@128x128_39
+    21300080: Waterfall@128x128_40
+    21300082: Waterfall@128x128_41
+    21300084: Waterfall@128x128_42
+    21300086: Waterfall@128x128_43
+    21300088: Waterfall@128x128_44
+    21300090: Waterfall@128x128_45
+    21300092: Waterfall@128x128_46
+    21300094: Waterfall@128x128_47
+    21300096: Waterfall@128x128_48
+    21300098: Waterfall@128x128_49
+    21300100: Waterfall@128x128_50
+    21300102: Waterfall@128x128_51
+    21300104: Waterfall@128x128_52
+    21300106: Waterfall@128x128_53
+    21300108: Waterfall@128x128_54
+    21300110: Waterfall@128x128_55
+    21300112: Waterfall@128x128_56
+    21300114: Waterfall@128x128_57
+    21300116: Waterfall@128x128_58
+    21300118: Waterfall@128x128_59
+    21300120: Waterfall@128x128_60
+    21300122: Waterfall@128x128_61
+    21300124: Waterfall@128x128_62
+    21300126: Waterfall@128x128_63
+    21300128: Waterfall@128x128_64
+    21300130: Waterfall@128x128_65
+    21300132: Waterfall@128x128_66
+    21300134: Waterfall@128x128_67
+    21300136: Waterfall@128x128_68
+    21300138: Waterfall@128x128_69
+    21300140: Waterfall@128x128_70
+    21300142: Waterfall@128x128_71
+    21300144: Waterfall@128x128_72
+    21300146: Waterfall@128x128_73
+    21300148: Waterfall@128x128_74
+    21300150: Waterfall@128x128_75
+    21300152: Waterfall@128x128_76
+    21300154: Waterfall@128x128_77
+    21300156: Waterfall@128x128_78
+    21300158: Waterfall@128x128_79
+    21300160: Waterfall@128x128_80
+    21300162: Waterfall@128x128_81
+    21300164: Waterfall@128x128_82
+    21300166: Waterfall@128x128_83
+    21300168: Waterfall@128x128_84
+    21300170: Waterfall@128x128_85
+    21300172: Waterfall@128x128_86
+    21300174: Waterfall@128x128_87
+    21300176: Waterfall@128x128_88
+    21300178: Waterfall@128x128_89
+    21300180: Waterfall@128x128_90
+    21300182: Waterfall@128x128_91
+    21300184: Waterfall@128x128_92
+    21300186: Waterfall@128x128_93
+    21300188: Waterfall@128x128_94
+    21300190: Waterfall@128x128_95
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 32
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Waterfall@128x128_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 640
+        width: 512
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Waterfall@128x128_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 640
+        width: 512
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Waterfall@128x128_2
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 640
+        width: 512
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Waterfall@128x128_3
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 640
+        width: 512
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Waterfall@128x128_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 512
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Waterfall@128x128_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 512
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Waterfall@128x128_6
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 256
+        width: 512
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Waterfall@128x128_7
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 256
+        width: 512
+        height: 384
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

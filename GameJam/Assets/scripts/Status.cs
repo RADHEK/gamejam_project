@@ -49,8 +49,8 @@ public class Status : MonoBehaviour
 
                     Saint = !Saint;
                     if (Saint)
-                        Player.transform.position += new Vector3(4000, 0, 0);
-                    else Player.transform.position -= new Vector3(4000, 0, 0);
+                        Player.transform.position += new Vector3(7195, 0, 0);
+                    else Player.transform.position -= new Vector3(7195, 0, 0);
                     Timer = TimeStop;
 
                 }
@@ -70,7 +70,7 @@ public class Status : MonoBehaviour
             if (MagicPointCurrent == 0)
             {
                 Saint = false;
-                Player.transform.position -= new Vector3(4000, 0, 0);
+                Player.transform.position -= new Vector3(7195, 0, 0);
             }
         }
 
