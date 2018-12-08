@@ -13,8 +13,13 @@ public class Status : MonoBehaviour
     public GameObject PauseButton;
     public GameObject Player;
     public GameObject RestartButton;
+    public GameObject Light0;
+    public GameObject Light1;
+    public GameObject Light2;
+    public GameObject Light3;
     private float TimeStop;
     private float Timer;
+    private int Artif;
     // Use this for initialization
     void Start()
     {
@@ -23,11 +28,13 @@ public class Status : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        Artif = GameObject.Find("Player").GetComponent<Player>().Artifacts;
         IsSaint();
         SAINT();
         IsDead();
+        Sight();
     }
 
     void IsDead()
@@ -82,6 +89,25 @@ public class Status : MonoBehaviour
         PauseButton.SetActive(false);
         RestartButton.SetActive(true);
         Time.timeScale = 0;
+    }
+
+    public void Sight()
+    {
+        if(Artif==1)
+        {
+            Light1.SetActive(true);
+            Destroy(Light0);
+        }
+        else if(Artif == 2)
+        {
+            Light2.SetActive(true);
+            Destroy(Light1);
+        }
+        else if (Artif == 3)
+        {
+            Light3.SetActive(true);
+            Destroy(Light2);
+        }
     }
 }
 
