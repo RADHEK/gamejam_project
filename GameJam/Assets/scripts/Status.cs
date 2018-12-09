@@ -72,8 +72,8 @@ public class Status : MonoBehaviour
         if (Saint)
         {
             MagicPointCurrent -= 1;
-            if(HealthPointCurrent<=200)
-                HealthPointCurrent += 1;
+            //if(HealthPointCurrent<=200) HealthPointCurrent += 1;
+            //加血功能暂时取消了
             if (MagicPointCurrent == 0)
             {
                 Saint = false;
@@ -93,21 +93,50 @@ public class Status : MonoBehaviour
 
     public void Sight()
     {
-        if(Artif==1)
+        if (Player.transform.position.x > -2840 && Player.transform.position.x < 4213 && Player.transform.position.y < 4017 && Player.transform.position.y > -2040)
         {
-            Light1.SetActive(true);
-            Destroy(Light0);
+            if (Artif == 0)
+                Light0.SetActive(false);
+
+            if (Artif == 1)
+            {
+                Light1.SetActive(false);
+              
+            }
+            else if (Artif == 2)
+            {
+                Light2.SetActive(false);
+                
+            }
+            else if (Artif == 3)
+            {
+                Light3.SetActive(false);
+               
+            }
+         
         }
-        else if(Artif == 2)
+        else if (Player.transform.position.x > 4355 && Player.transform.position.x < 11408 && Player.transform.position.y < 4017 && Player.transform.position.y > -2040)
         {
-            Light2.SetActive(true);
-            Destroy(Light1);
-        }
-        else if (Artif == 3)
-        {
-            Light3.SetActive(true);
-            Destroy(Light2);
+            if(Artif==0)
+            Light0.SetActive(true);
+
+            if (Artif == 1)
+            {
+                Light1.SetActive(true);
+                Destroy(Light0);
+            }
+            else if (Artif == 2)
+            {
+                Light2.SetActive(true);
+                Destroy(Light1);
+            }
+            else if (Artif == 3)
+            {
+                Light3.SetActive(true);
+                Destroy(Light2);
+            }
         }
     }
+    
 }
 

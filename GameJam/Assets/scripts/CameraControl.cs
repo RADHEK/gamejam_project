@@ -14,7 +14,7 @@ public class CameraControl : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
-
+        //玩家在原地图
         if (Player.transform.position.x > -2840 && Player.transform.position.x < 4213 && Player.transform.position.y < 4017 && Player.transform.position.y > -2040)
         {
             //if (Player.transform.position.x > -629 && Player.transform.position.x < 629 && Player.transform.position.y < 1018 && Player.transform.position.y > -1018)
@@ -52,7 +52,7 @@ public class CameraControl : MonoBehaviour {
                 else transform.position = new Vector3(Player.transform.position.x, -1460, -1);
             }
         }
-
+        //玩家开启真视之眼
         if (Player.transform.position.x > 4355 && Player.transform.position.x < 11408 && Player.transform.position.y < 4017 && Player.transform.position.y > -2040)
         {
             transform.position = new Vector3(Player.transform.position.x, Player.transform.position.y, -1);
