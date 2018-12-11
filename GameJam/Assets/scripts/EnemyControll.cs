@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class EnemyControll : MonoBehaviour
 {
+    public float speed;
+
+    private Animator anim;
+    //public GameObject bloodEffect;
 
     private Transform Player;
     public float EnemyMoveSpeed;
@@ -19,6 +23,9 @@ public class EnemyControll : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //anim = GetComponent<Animator>();
+        //anim.SetBool("isRunning", true);
+
         Timer = 2;
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         Target = PatrolA;
@@ -27,7 +34,11 @@ public class EnemyControll : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        IsEmitated();
+        if (HealthPoint <= 0)
+        {
+            Destroy(gameObject);
+            IsDead=true;
+        }
         if (!IsDead)
         {
             Distance = Vector2.Distance(Player.position, Enemy1.transform.position);
@@ -50,13 +61,13 @@ public class EnemyControll : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D collider2D)
+    /*void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (collider2D.tag == "Sword" && GameObject.Find("Sword").GetComponent<SwordControl>().IsAttacking)
         {
             HealthPoint -= 50;
         }
-    }
+    }*/
 
     private void Chase()
     {
@@ -88,20 +99,11 @@ public class EnemyControll : MonoBehaviour
         transform.localScale = Temp;
     }
 
-    private void IsEmitated()
+     public void TakeDamage(int damage)
     {
-        if (HealthPoint <= 0)
-        {
-            this.gameObject.transform.rotation = Quaternion.Euler(new Vector3(0, 0, 90));
-            IsDead = true;
-            Destroy(this.gameObject.GetComponent<Collider2D>());
-            Timer -= Time.deltaTime;
-            if (Timer< 0)
-            {
-                Destroy(this.gameObject);
-            }
-        }
-
+        //Instantiate(bloodEffect, transform.position, Quaternion.identity);
+        HealthPoint -= damage;
+        Debug.Log("!!!!");
     }
 
 }
