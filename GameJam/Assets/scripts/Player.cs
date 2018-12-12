@@ -5,20 +5,23 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int Artifacts = 0;
-    private int HealthGet = 50;
-    private int MagicGet = 50;
-    private int MaxHP;
-    private int CurHP;
-    private int MaxMP;
-    private int CurMP;
+    private int HealthGet = 50, MagicGet = 50;
+    private int MaxHP, CurHP, MaxMP, CurMP;
     public float horizontal, vertical;
     public float Player_Speed;
     public Rigidbody2D Player_rb;
-    private float TimeStop;
-    private float Timer;
+    private float TimeStop, Timer;
     private int Bounce;
-    //Vector2 movement;
-    //bool IsFacingRight = true;
+    bool IsFacingRight = true;
+    Animator Anim;
+
+    private float timeBtwAttack;
+    public float startTimeBtAttack;
+
+    public Transform attackPos;
+    public LayerMask whatIsEnemies;
+    public float attackRange;
+    public int damage;
 
     // Use this for initialization
     void Start()
@@ -29,8 +32,9 @@ public class Player : MonoBehaviour
         Player_rb = GetComponent<Rigidbody2D>();
         TimeStop = 0.3f;
         Timer = 0;
+        Anim = this.GetComponent<Animator>();
     }
-    
+
     void OnTriggerEnter2D(Collider2D collider2D)
     {
         if (collider2D.tag == "Artifacts")
@@ -62,20 +66,72 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        
-        if((Timer-=Time.deltaTime)>=0)
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(Bounce,0 ), ForceMode2D.Force);
-        AnimationPlayerMove();
+
+        if ((Timer -= Time.deltaTime) >= 0)
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(Bounce, 0), ForceMode2D.Force);
+        //AnimationPlayerMove();
         Move();
         CurHP = GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent;
         CurMP = GameObject.Find("Status").GetComponent<Status>().MagicPointCurrent;
-        //if (Player_rb.velocity.x > 0 && !IsFacingRight) Flip();
-        //if (Player_rb.velocity.x < 0 && IsFacingRight) Flip();
+        if (Player_rb.velocity.x > 0 && !IsFacingRight) Flip();
+        if (Player_rb.velocity.x < 0 && IsFacingRight) Flip();
+        //attack function
+        if (timeBtwAttack <= 0)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Anim.SetBool("IsAttacking", true);
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
+                /*for (int i = 0; i < enemiesToDamage.Length; i++)
+                {
+                    enemiesToDamage[i].GetComponent<EnemyControll>().TakeDamage(damage);
+                }*/
+            }
+            else Anim.SetBool("IsAttacking", false);
+        }
     }
 
-    void AnimationPlayerMove()
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawSphere(attackPos.position, attackRange);
+    }
+
+    private void Move()
     {
         Animator anim = this.GetComponent<Animator>();
+        horizontal = Input.GetAxis("Horizontal");
+        vertical = Input.GetAxis("Vertical");
+        /*if (horizontal == 0 && vertical == 0)
+            anim.SetBool("StillSwitch", true);
+        else
+            anim.SetBool("StillSwitch", false);*/
+        Player_rb.velocity = new Vector2(horizontal * Player_Speed, vertical * Player_Speed);
+        if (horizontal == 0 && vertical == 0)
+            Anim.SetBool("IsWalking", false);
+        else Anim.SetBool("IsWalking", true);
+
+    }
+
+    private void Flip()
+    {
+        IsFacingRight = !IsFacingRight;
+        Vector2 Temp = transform.localScale;
+        Temp.x *= -1;
+        transform.localScale = Temp;
+    }
+
+
+
+}
+
+
+
+    /*
+    void AnimationPlayerMove()
+    {
+        Animator Animator = this.GetComponent<Animator>();
+        
         if (!anim.GetBool("StillSwitch"))
         {
             if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
@@ -98,27 +154,10 @@ public class Player : MonoBehaviour
                 anim.SetInteger("Decision", 1);
                 anim.SetInteger("IsStill", 1);
             }
+            
         }
+        
     }
+*/
 
-    private void Move()
-    {
-        Animator anim = this.GetComponent<Animator>();
-        horizontal = Input.GetAxis("Horizontal");
-        vertical = Input.GetAxis("Vertical");
-        if (horizontal == 0 && vertical == 0)
-            anim.SetBool("StillSwitch", true);
-        else
-            anim.SetBool("StillSwitch", false);
-        Player_rb.velocity = new Vector2(horizontal * Player_Speed, vertical * Player_Speed);
-    }
-
-    /*private void Flip()
-    {
-        IsFacingRight = !IsFacingRight;
-        Vector2 Temp = transform.localScale;
-        Temp.x *= -1;
-        transform.localScale = Temp;
-    }*/
-}
 

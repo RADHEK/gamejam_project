@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyControll : MonoBehaviour
 {
-    public float speed;
 
     private Animator anim;
     //public GameObject bloodEffect;
@@ -19,14 +18,12 @@ public class EnemyControll : MonoBehaviour
     public Vector2 Target;
     public int HealthPoint;
     private bool IsDead = false;
-    private float Timer;
+
     // Use this for initialization
     void Start()
     {
         //anim = GetComponent<Animator>();
         //anim.SetBool("isRunning", true);
-
-        Timer = 2;
         Player = GameObject.FindGameObjectWithTag("Player").transform;
         Target = PatrolA;
     }
