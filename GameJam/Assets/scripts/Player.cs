@@ -82,13 +82,19 @@ public class Player : MonoBehaviour
             {
                 Anim.SetBool("IsAttacking", true);
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
-                /*for (int i = 0; i < enemiesToDamage.Length; i++)
+                for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<EnemyControll>().TakeDamage(damage);
-                }*/
+                }
+                timeBtwAttack = startTimeBtAttack;
             }
             else Anim.SetBool("IsAttacking", false);
         }
+        else
+        {
+            timeBtwAttack -= Time.deltaTime;
+        }
+
     }
 
     private void OnDrawGizmos()
