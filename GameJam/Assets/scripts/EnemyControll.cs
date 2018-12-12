@@ -18,6 +18,9 @@ public class EnemyControll : MonoBehaviour
     public Vector2 Target;
     public int HealthPoint;
     private bool IsDead = false;
+    public float TimeStop = 3f;
+    public Animator EnemyAnim;
+
 
     // Use this for initialization
     void Start()
@@ -33,7 +36,9 @@ public class EnemyControll : MonoBehaviour
     {
         if (HealthPoint <= 0)
         {
-            Destroy(gameObject);
+            EnemyAnim.SetTrigger("Death");
+            if ((TimeStop -= Time.deltaTime) < 0)
+                Destroy(gameObject);
             IsDead=true;
         }
         if (!IsDead)
@@ -58,13 +63,7 @@ public class EnemyControll : MonoBehaviour
         }
     }
 
-    /*void OnTriggerEnter2D(Collider2D collider2D)
-    {
-        if (collider2D.tag == "Sword" && GameObject.Find("Sword").GetComponent<SwordControl>().IsAttacking)
-        {
-            HealthPoint -= 50;
-        }
-    }*/
+
 
     private void Chase()
     {
@@ -100,7 +99,7 @@ public class EnemyControll : MonoBehaviour
     {
         //Instantiate(bloodEffect, transform.position, Quaternion.identity);
         HealthPoint -= damage;
-        Debug.Log("!!!!");
+
     }
 
 }

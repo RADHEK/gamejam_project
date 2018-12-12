@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private int Bounce;
     bool IsFacingRight = true;
     Animator Anim;
+    public Animator EnemyAnim;
 
     private float timeBtwAttack;
     public float startTimeBtAttack;
@@ -33,6 +34,7 @@ public class Player : MonoBehaviour
         TimeStop = 0.3f;
         Timer = 0;
         Anim = this.GetComponent<Animator>();
+        
     }
 
     void OnTriggerEnter2D(Collider2D collider2D)
@@ -56,6 +58,7 @@ public class Player : MonoBehaviour
         {
             GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent -= 50;
             Timer = TimeStop;
+            Anim.SetBool("Hurt", true);
             if (collider2D.gameObject.GetComponent<EnemyControll>().IsFacingRight)
                 Bounce = 500000;
             else
@@ -66,7 +69,8 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        Anim.SetBool("Hurt", false);
+        
         if ((Timer -= Time.deltaTime) >= 0)
             GetComponent<Rigidbody2D>().AddForce(new Vector2(Bounce, 0), ForceMode2D.Force);
         //AnimationPlayerMove();
@@ -81,14 +85,23 @@ public class Player : MonoBehaviour
             if (Input.GetKey(KeyCode.Space))
             {
                 Anim.SetBool("IsAttacking", true);
+
+
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<EnemyControll>().TakeDamage(damage);
+                    EnemyAnim.SetBool("Hurt", true);
+
                 }
+
                 timeBtwAttack = startTimeBtAttack;
             }
-            else Anim.SetBool("IsAttacking", false);
+            else
+            {
+                Anim.SetBool("IsAttacking", false);
+                EnemyAnim.SetBool("Hurt", false);
+            }
         }
         else
         {
@@ -96,6 +109,7 @@ public class Player : MonoBehaviour
         }
 
     }
+
 
     private void OnDrawGizmos()
     {
@@ -108,10 +122,6 @@ public class Player : MonoBehaviour
         Animator anim = this.GetComponent<Animator>();
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-        /*if (horizontal == 0 && vertical == 0)
-            anim.SetBool("StillSwitch", true);
-        else
-            anim.SetBool("StillSwitch", false);*/
         Player_rb.velocity = new Vector2(horizontal * Player_Speed, vertical * Player_Speed);
         if (horizontal == 0 && vertical == 0)
             Anim.SetBool("IsWalking", false);
