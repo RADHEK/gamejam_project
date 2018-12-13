@@ -17,6 +17,7 @@ public class Status : MonoBehaviour
     public GameObject Light1;
     public GameObject Light2;
     public GameObject Light3;
+    public GameObject CanvasN;
     private float TimeStop;
     private float Timer;
     private int Artif;
@@ -30,6 +31,7 @@ public class Status : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        Follow();
         Artif = GameObject.Find("Player").GetComponent<Player>().Artifacts;
         IsSaint();
         SAINT();
@@ -90,11 +92,16 @@ public class Status : MonoBehaviour
         RestartButton.SetActive(true);
         Time.timeScale = 0;
     }
+    public void Follow()
+    {
+        CanvasN.transform.position = new Vector2(Player.transform.position.x+80, Player.transform.position.y);
+    }
 
     public void Sight()
     {
         if (Player.transform.position.x > -2840 && Player.transform.position.x < 4213 && Player.transform.position.y < 4017 && Player.transform.position.y > -2040)
         {
+            CanvasN.SetActive(false);
             if (Artif == 0)
                 Light0.SetActive(false);
 
@@ -117,7 +124,8 @@ public class Status : MonoBehaviour
         }
         else if (Player.transform.position.x > 4355 && Player.transform.position.x < 11408 && Player.transform.position.y < 4017 && Player.transform.position.y > -2040)
         {
-            if(Artif==0)
+            CanvasN.SetActive(true);
+            if (Artif==0)
             Light0.SetActive(true);
 
             if (Artif == 1)

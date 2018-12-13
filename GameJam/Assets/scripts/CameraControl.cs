@@ -67,10 +67,10 @@ public class CameraControl : MonoBehaviour {
             if (Player.transform.position.x < 5505)
             {
                 if (Player.transform.position.y > 3435)
-                    transform.position = new Vector3(-1690, 3435, -1);
+                    transform.position = new Vector3(5505, 3435, -1);
                 else if (Player.transform.position.y < -1460)
-                    transform.position = new Vector3(-1690, -1460, -1);
-                else transform.position = new Vector3(-1690, Player.transform.position.y, -1);
+                    transform.position = new Vector3(5505, -1460, -1);
+                else transform.position = new Vector3(5505, Player.transform.position.y, -1);
             }
             if (Player.transform.position.y > 3435)
             {
