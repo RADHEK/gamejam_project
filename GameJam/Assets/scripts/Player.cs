@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int Artifacts = 0;
-    private int HealthGet = 50, MagicGet = 50;
+    private int HealthGet = 50, MagicGet = 500;
     private int MaxHP, CurHP, MaxMP, CurMP;
     public float horizontal, vertical;
     public float Player_Speed;
@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
         }
         else if (collider2D.tag == "MagicGet")
         {
-            GameObject.Find("Status").GetComponent<Status>().MagicPointCurrent = (CurMP + MagicGet) > MaxMP ? MaxMP : (CurMP + 50);
+            GameObject.Find("Status").GetComponent<Status>().MagicPointCurrent = (CurMP + MagicGet) > MaxMP ? MaxMP : (CurMP + MagicGet);
             Destroy(collider2D.gameObject);
         }
         else if (collider2D.tag == "Enemy")
