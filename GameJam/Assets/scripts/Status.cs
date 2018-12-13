@@ -55,7 +55,7 @@ public class Status : MonoBehaviour
             {
                 if (Input.GetKeyUp(KeyCode.X))
                 {
-
+                    GameObject.Find("Status").GetComponent<CD>().UseSkill();
                     Saint = !Saint;
                     if (Saint)
                         Player.transform.position += new Vector3(7195, 0, 0);
