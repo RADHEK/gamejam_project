@@ -27,7 +27,6 @@ public class CD : MonoBehaviour
 
     public void UseSkill()
     {
-        Debug.Log("真视");
         currentTime = coldTime;
         Mask.fillAmount = 1;
         skillCDText.text = coldTime.ToString();

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -14,20 +15,18 @@ public class Player : MonoBehaviour
     private int Bounce;
     bool IsFacingRight = true;
     Animator Anim;
-    public Animator EnemyAnim;
-
     private float timeBtwAttack;
     public float startTimeBtAttack;
-
+    private bool IsBoost;
     public Transform attackPos;
     public LayerMask whatIsEnemies;
     public float attackRange;
     public int damage;
-
+    public bool IsHurt;
     // Use this for initialization
     void Start()
     {
-
+        IsBoost = false;
         MaxMP = GameObject.Find("Status").GetComponent<Status>().MagicPointMax;
         MaxHP = GameObject.Find("Status").GetComponent<Status>().HealthPointMax;
         Player_rb = GetComponent<Rigidbody2D>();
@@ -35,6 +34,48 @@ public class Player : MonoBehaviour
         Timer = 0;
         Anim = this.GetComponent<Animator>();
         
+    }
+
+
+    // Update is called once per frame
+
+    void FixedUpdate()
+    {
+        Anim.SetBool("Hurt", false);
+        BoostUp();
+        if ((Timer -= Time.deltaTime) >= 0)
+            GetComponent<Rigidbody2D>().AddForce(new Vector2(Bounce, 0), ForceMode2D.Force);
+        //AnimationPlayerMove();
+        Move();
+        CurHP = GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent;
+        CurMP = GameObject.Find("Status").GetComponent<Status>().MagicPointCurrent;
+        if (Player_rb.velocity.x > 0 && !IsFacingRight) Flip();
+        if (Player_rb.velocity.x < 0 && IsFacingRight) Flip();
+        //attack function
+        if (timeBtwAttack <= 0)
+        {
+            if (Input.GetKey(KeyCode.Space))
+            {
+                Anim.SetBool("IsAttacking", true);
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
+                for (int i = 0; i < enemiesToDamage.Length; i++)
+                {
+                    enemiesToDamage[i].GetComponent<EnemyControll>().TakeDamage(damage);
+
+                }
+                timeBtwAttack = startTimeBtAttack;
+            }
+            else
+            {
+                IsHurt = false;
+                Anim.SetBool("IsAttacking", false);
+            }
+        }
+        else
+        {
+            timeBtwAttack -= Time.deltaTime;
+        }
+
     }
 
     void OnTriggerEnter2D(Collider2D collider2D)
@@ -65,51 +106,6 @@ public class Player : MonoBehaviour
                 Bounce = -500000;
         }
     }
-    // Update is called once per frame
-
-    void FixedUpdate()
-    {
-        Anim.SetBool("Hurt", false);
-        
-        if ((Timer -= Time.deltaTime) >= 0)
-            GetComponent<Rigidbody2D>().AddForce(new Vector2(Bounce, 0), ForceMode2D.Force);
-        //AnimationPlayerMove();
-        Move();
-        CurHP = GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent;
-        CurMP = GameObject.Find("Status").GetComponent<Status>().MagicPointCurrent;
-        if (Player_rb.velocity.x > 0 && !IsFacingRight) Flip();
-        if (Player_rb.velocity.x < 0 && IsFacingRight) Flip();
-        //attack function
-        if (timeBtwAttack <= 0)
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                Anim.SetBool("IsAttacking", true);
-
-
-                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
-                for (int i = 0; i < enemiesToDamage.Length; i++)
-                {
-                    enemiesToDamage[i].GetComponent<EnemyControll>().TakeDamage(damage);
-                    EnemyAnim.SetBool("Hurt", true);
-
-                }
-
-                timeBtwAttack = startTimeBtAttack;
-            }
-            else
-            {
-                Anim.SetBool("IsAttacking", false);
-                EnemyAnim.SetBool("Hurt", false);
-            }
-        }
-        else
-        {
-            timeBtwAttack -= Time.deltaTime;
-        }
-
-    }
-
 
     private void OnDrawGizmos()
     {
@@ -119,7 +115,6 @@ public class Player : MonoBehaviour
 
     private void Move()
     {
-        Animator anim = this.GetComponent<Animator>();
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
         Player_rb.velocity = new Vector2(horizontal * Player_Speed, vertical * Player_Speed);
@@ -137,8 +132,26 @@ public class Player : MonoBehaviour
         transform.localScale = Temp;
     }
 
-
-
+    private void BoostUp()
+    {
+        if (GameObject.Find("Status").GetComponent<Status>().MagicPointCurrent > 0 && Input.GetKey(KeyCode.LeftShift))
+        {
+            if (!IsBoost)
+            {
+                IsBoost = true;
+                Player_Speed *= 2;
+            }
+            GameObject.Find("Status").GetComponent<Status>().MagicPointCurrent -= 5;
+        }
+        else
+        {
+            if(IsBoost)
+            {
+                IsBoost = false;
+                Player_Speed /= 2;
+            }
+        }
+    }
 }
 
 

@@ -7,7 +7,6 @@ public class EnemyControll : MonoBehaviour
 
     private Animator anim;
     //public GameObject bloodEffect;
-
     private Transform Player;
     public float EnemyMoveSpeed;
     public float ChaseDistance;
@@ -20,7 +19,8 @@ public class EnemyControll : MonoBehaviour
     private bool IsDead = false;
     public float TimeStop = 3f;
     public Animator EnemyAnim;
-
+    public GameObject HPSupply;
+    public GameObject MPSupply;
 
     // Use this for initialization
     void Start()
@@ -38,8 +38,13 @@ public class EnemyControll : MonoBehaviour
         {
             EnemyAnim.SetTrigger("Death");
             if ((TimeStop -= Time.deltaTime) < 0)
+            {
+                GameObject.Find("Status").GetComponent<Status>().En++;
+                Supply();
+                Destroy(gameObject.GetComponent<Animator>());
                 Destroy(gameObject);
-            IsDead=true;
+            }
+            IsDead = true;
         }
         if (!IsDead)
         {
@@ -63,7 +68,13 @@ public class EnemyControll : MonoBehaviour
         }
     }
 
-
+    private void Supply()
+    {
+        if (Random.Range(0, 3) == 0)
+            Instantiate(HPSupply, this.transform.position, Quaternion.identity);
+        if (Random.Range(0, 3) == 1)
+            Instantiate(MPSupply, this.transform.position, Quaternion.identity);
+    }
 
     private void Chase()
     {
@@ -74,7 +85,7 @@ public class EnemyControll : MonoBehaviour
 
     private void Patrol()
     {
-        if (Vector2.Distance(Target, Enemy1.transform.position) > 0.001)
+        if (Vector2.Distance(Target, Enemy1.transform.position) > 0.001 || Vector2.Distance(Target, Enemy1.transform.position) == 0)
         {
             Enemy1.transform.position = Vector2.MoveTowards(transform.position, Target, EnemyMoveSpeed * Time.deltaTime);
             if (Vector2.Distance(Target, Enemy1.transform.position) < 0.001)
@@ -99,7 +110,7 @@ public class EnemyControll : MonoBehaviour
     {
         //Instantiate(bloodEffect, transform.position, Quaternion.identity);
         HealthPoint -= damage;
-
+        EnemyAnim.SetTrigger("Hurt");
     }
 
 }

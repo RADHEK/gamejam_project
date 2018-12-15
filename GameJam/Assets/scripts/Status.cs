@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Status : MonoBehaviour
 {
@@ -18,19 +19,25 @@ public class Status : MonoBehaviour
     public GameObject Light2;
     public GameObject Light3;
     public GameObject CanvasN;
+    public Text ArtiNum;
+    public Text EnNum;
     private float TimeStop;
     private float Timer;
     private int Artif;
+    public int En;
     // Use this for initialization
     void Start()
     {
         TimeStop = 10;
         Timer = 0;
+        En = 0;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        EnNum.text = "Demon Destroyed:" + En.ToString();
+        ArtiNum.text = "Coin:"+Artif.ToString();
         Follow();
         Artif = GameObject.Find("Player").GetComponent<Player>().Artifacts;
         IsSaint();

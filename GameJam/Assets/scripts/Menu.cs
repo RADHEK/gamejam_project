@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class Menu : MonoBehaviour {
     public GameObject GameMenu;
     public GameObject PauseButton;
     public GameObject RestartButton;
+
     // Use this for initialization
     void Start ()
     {
@@ -16,6 +18,7 @@ public class Menu : MonoBehaviour {
 	// Update is called once per frame
 	void Update()
     {
+        
         GameComplete();
         if (Input.GetKeyUp(KeyCode.Escape))
         {
@@ -53,7 +56,7 @@ public class Menu : MonoBehaviour {
 
     public void Restart()
     {
-        GameObject.Find("Status").GetComponent<Status>().MagicPointCurrent = 5000;
+        GameObject.Find("Status").GetComponent<Status>().MagicPointCurrent = 0;
         GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent = 200;
         SceneManager.LoadScene(1);
         Resume();
