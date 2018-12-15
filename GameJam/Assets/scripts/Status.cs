@@ -83,7 +83,7 @@ public class Status : MonoBehaviour
             MagicPointCurrent -= 1;
             //if(HealthPointCurrent<=200) HealthPointCurrent += 1;
             //加血功能暂时取消了
-            if (MagicPointCurrent == 0)
+            if (MagicPointCurrent <= 0)
             {
                 Saint = false;
                 Player.transform.position -= new Vector3(7195, 0, 0);
