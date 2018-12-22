@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
         }
         else if (collider2D.tag == "HealthGet")
         {
-            GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent = (CurHP + HealthGet) > MaxHP ? MaxHP : (CurHP + 50);
+            GameObject.Find("Status").GetComponent<Status>().HealthPointCurrent = (CurHP + HealthGet) > MaxHP ? MaxHP : (CurHP + HealthGet);
             Destroy(collider2D.gameObject);
         }
         else if (collider2D.tag == "MagicGet")
